@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h1>Etch-a-Sketch</h1>
+      <div id="canvas" class="canvas"></div>
+      <div class="toolbar">
+        <button id="clear-canvas-btn" class="clear-canvas-btn">
+          Clear canvas
+        </button>
+        <button id="random-color-btn" class="random-color-btn">
+          Random color
+        </button>
+        <div class="control-group">
+          <label id="grid-size-label" for="grid-size-slider">Grid Size: <span id="grid-size-label-value">8 x 8</span></label>
+          <input
+            type="range"
+            name="gridSize"
+            id="grid-size-slider"
+            min="8"
+            max="64"
+            value="8"
+          />
+        </div>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
