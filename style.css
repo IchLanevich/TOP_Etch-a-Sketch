@@ -45,12 +45,9 @@ h1{
     border: 1px solid #2a2a2a;
 }
 
-.cell-bg {
-    background-color: #6f6767;
-}
-
 button {
     background-color: #efefef;
+    border: none;
     padding: 10px 16px;
     border-radius: 4px;
     font-size: 1rem;

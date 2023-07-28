@@ -15,8 +15,7 @@ canvas.style.gridTemplateColumns = `repeat(${8}, 2fr)`;
 canvas.style.gridTemplateRows = `repeat(${8}, 2fr)`;
 
 slider.addEventListener("change", (e) => {
-
-    canvas.innerHTML = "";
+  canvas.innerHTML = "";
 
   let value = parseInt(e.target.value);
   let gridSize = value;
@@ -33,6 +32,22 @@ slider.addEventListener("change", (e) => {
     canvas.appendChild(cell);
   }
 
+  const cells = document.querySelectorAll(".cell");
+
+  if (isRandomColor === true) {
+    cells.forEach((cell) =>
+      cell.addEventListener("mouseover", handleMouseOverRandom)
+    );
+  } else {
+    cells.forEach((cell) => {
+      cell.addEventListener("mouseover", handleMouseOverFixed);
+    });
+  }
+});
+
+const cells = document.querySelectorAll(".cell");
+cells.forEach((cell) => {
+  cell.addEventListener("mouseover", handleMouseOverFixed);
 });
 
 const clearCanvasBtn = document.querySelector("#clear-canvas-btn");
@@ -42,7 +57,7 @@ clearCanvasBtn.addEventListener("click", () => {
   const cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.classList.remove("cell-bg");
-    cell.style.backgroundColor = "#2e2e2e";
+    cell.style.backgroundColor = "#fff";
   });
 });
 
@@ -55,16 +70,13 @@ randomColorBtn.addEventListener("click", (e) => {
     cell.removeEventListener("mouseover", handleMouseOverRandom);
 
     if (isRandomColor) {
+      randomColorBtn.style.outline = "#12878b solid 4px";
       cell.addEventListener("mouseover", handleMouseOverRandom);
     } else {
+      randomColorBtn.style.outline = "none";
       cell.addEventListener("mouseover", handleMouseOverFixed);
     }
   });
-});
-
-const cells = document.querySelectorAll(".cell");
-cells.forEach((cell) => {
-  cell.addEventListener("mouseover", handleMouseOverFixed);
 });
 
 //
